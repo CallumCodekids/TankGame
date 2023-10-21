@@ -5,7 +5,7 @@ pygame.init()
 clock = pygame.time.Clock()
 screen_width = 1000
 screen_height = 600
-tank = Tank(400,200,40,60,"player_tank.png")
+tank = Tank(400,200,60,60,"player_tank.png")
 fps = 60
 screen = pygame.display.set_mode((screen_width,screen_height))
 bg = pygame.image.load("background.jpg")

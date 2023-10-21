@@ -21,14 +21,17 @@ class Tank:
         self.back_and_forward()
         
     def rotate(self):
-        self.angle = self.angle +1
         keys = pygame.key.get_pressed()
         if keys[pygame.K_a]:
-            print("a was pressed")
+          self.angle = self.angle +1  
         if keys[pygame.K_d]:
-            print("d was pressed")
+            self.angle = self.angle -1
 
         
     def back_and_forward(self):
-        pass
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_w]:
+          self.y = self.y -1  
+        if keys[pygame.K_s]:
+            self.y = self.y +1
         
