@@ -1,8 +1,9 @@
 import pygame
+import math
 
 class Tank:
     
-    def __init__(self,x,y,width, height, image):
+    def __init__(self,x,y,width, height, image, speed):
         self.x = x
         self.y = y
         self.width = width
