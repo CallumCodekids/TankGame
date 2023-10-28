@@ -9,7 +9,7 @@ class Tank:
         self.height = height
         self.image = pygame.image.load(image)
         self.image = pygame.transform.scale(self.image,(self.width,self.height))
-        self.speed = 0
+        self.speed = speed
         self.angle = 0
         
     def display(self,screen):
@@ -30,8 +30,13 @@ class Tank:
         
     def back_and_forward(self):
         keys = pygame.key.get_pressed()
+        x = math.sin(math.radians(self.angle))*self.speed
+        y = math.cos(math.radians(self.angle))*self.speed
         if keys[pygame.K_w]:
-          self.y = self.y -1  
+            self.x = self.x - x
+            self.y = self.y - y
         if keys[pygame.K_s]:
-            self.y = self.y +1
+            self.x = self.x + x
+            self.y = self.y + y
+        
         
