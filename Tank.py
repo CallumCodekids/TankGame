@@ -3,7 +3,7 @@ import math
 
 class Tank:
     
-    def __init__(self,x,y,width, height, image, speed):
+    def __init__(self,x,y,width, height, image, speed, angle = 0):
         self.x = x
         self.y = y
         self.width = width
@@ -11,7 +11,7 @@ class Tank:
         self.image = pygame.image.load(image)
         self.image = pygame.transform.scale(self.image,(self.width,self.height))
         self.speed = speed
-        self.angle = 0
+        self.angle = angle
         
     def display(self,screen):
         screen.blit(pygame.transform.rotate(self.image,self.angle),
@@ -39,5 +39,8 @@ class Tank:
         if keys[pygame.K_s]:
             self.x = self.x + x
             self.y = self.y + y
+        
+    def get_rect(self):
+        return pygame.Rect(self.x,self.y,self.width,self.height)
         
         
