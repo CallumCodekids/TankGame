@@ -36,6 +36,7 @@ while run:
     if collect > amount:
         collectables.append(Collectables(random.randrange(100,screen_width),random.randrange(100,screen_height),180,160,"fire ball.png",7))
         collect = 0
+        amount = random.randint(2,min(amount*2,20))
     collect += 0.01
     if power_up == True:
         power_up_last += 0.01
