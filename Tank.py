@@ -26,7 +26,7 @@ class Tank:
     def rotate(self):
         keys = pygame.key.get_pressed()
         if keys[pygame.K_a]:
-          self.angle = self.angle +1  
+            self.angle = self.angle +1  
         if keys[pygame.K_d]:
             self.angle = self.angle -1
 
@@ -41,6 +41,9 @@ class Tank:
         if keys[pygame.K_s]:
             self.x = self.x + x
             self.y = self.y + y
+            
+    def collision(self):
+        
 
     def keep_in_screen(self):
         miny = 0
