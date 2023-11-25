@@ -1,5 +1,6 @@
 import pygame
 import random
+import time
 from Tank import Tank
 from Collectables import Collectables
 pygame.init()
@@ -17,6 +18,8 @@ amount = 2
 run = True
 collectables = []
 power_up_last = 0
+to_show = []
+time = -1
 
 while run:
     for event in pygame.event.get():
@@ -34,10 +37,16 @@ while run:
             power_up = True
         collectable.display(screen)
     if collect > amount:
-        collectables.append(Collectables(random.randrange(100,screen_width),random.randrange(100,screen_height),180,160,"fire ball.png",7))
+        collectables.append(Collectables(random.randrange(100,screen_width),random.randrange(100,screen_height),70,50,"banaa.png",7))
         collect = 0
         amount = random.randint(2,min(amount*2,20))
     collect += 0.01
+    if not to_show == []:
+        time = time -1
+        if time < 1:
+            to_show = []
+    pygame.display.flip()
+    clock.tick(60)
     if power_up == True:
         power_up_last += 0.01
     if power_up_last >= 10:
@@ -47,4 +56,6 @@ while run:
     tank.display()
     pygame.display.flip()
     clock.tick(fps)
+    
+
 pygame.quit()

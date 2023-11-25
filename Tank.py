@@ -1,5 +1,6 @@
 import pygame
 import math
+import time
 
 class Tank:
     
