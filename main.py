@@ -8,8 +8,8 @@ screen_width = 1000
 screen_height = 600
 fps = 60
 screen = pygame.display.set_mode((screen_width,screen_height))
-tank = Tank(400,200,60,60,"player_tank.png", 5, screen)
-bg = pygame.image.load("updatedtankbackround.jpg")
+tank = Tank(400,200,60,60,"drippyamongus-removebg-preview.png", 5, screen)
+bg = pygame.image.load("amabagus.jpg")
 bg= pygame.transform.scale(bg,(screen_width,screen_height))
 collect = 0
 power_up = False
@@ -28,8 +28,9 @@ while run:
     tank_rect = tank.get_rect()
     for collectable in collectables:
         collectable_rect = collectable.get_rect()
-        if tank_rect.colliderect(collectables.remove(collectable)
-            tank = Tank(tank.x,tank.y,60,60,"power up tank.png", 6, screen, tank.angle)
+        if tank_rect.colliderect(collectable_rect):
+            collectables.remove(collectable)
+            tank = Tank(tank.x,tank.y,60,60,"gigchad.png", 6, screen, tank.angle)
             power_up = True
         collectable.display(screen)
     if collect > amount:
@@ -41,7 +42,7 @@ while run:
         power_up_last += 0.01
     if power_up_last >= 10:
         power_up = False
-        tank = Tank(tank.x,tank.y,40,40,"player_tank.png", 5, screen, tank.angle)
+        tank = Tank(tank.x,tank.y,40,40,"drippyamongus-removebg-preview.png", 5, screen, tank.angle)
         power_up_last = 0
     tank.display()
     pygame.display.flip()
